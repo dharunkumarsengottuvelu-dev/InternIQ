@@ -1,0 +1,18 @@
+{
+  "name": "interniq",
+  "version": "1.0.0",
+  "description": "AI-Powered Internship Recommendation Platform",
+  "private": true,
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "redis:start": "powershell -ExecutionPolicy Bypass -File start-redis.ps1",
+    "dev": "concurrently \"npm run redis:start\" \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=client",
+    "lint": "npm run lint --workspace=client && npm run lint --workspace=server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

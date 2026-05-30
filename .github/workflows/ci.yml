@@ -1,0 +1,51 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: './server/package-lock.json'
+
+    # Backend
+    - name: Install Backend Dependencies
+      run: npm ci
+      working-directory: ./server
+
+    - name: Run Backend Tests
+      run: npm test --if-present
+      working-directory: ./server
+      
+    - name: Run Backend Linter
+      run: npm run lint --if-present
+      working-directory: ./server
+
+    # Frontend
+    - name: Install Frontend Dependencies
+      run: npm install
+      working-directory: ./client
+
+    - name: Build Frontend
+      run: npm run build
+      working-directory: ./client
+
+    - name: Run Frontend Linter
+      run: npm run lint --if-present
+      working-directory: ./client

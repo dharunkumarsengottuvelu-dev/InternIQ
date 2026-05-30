@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "uploads/*",
+    "logs/*",
+    ".env",
+    "download_llama.py"
+  ]
+}

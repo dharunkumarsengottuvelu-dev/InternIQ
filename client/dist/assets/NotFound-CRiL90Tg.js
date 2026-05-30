@@ -1,0 +1,7 @@
+import{j as e,m as t}from"./motion-D2f9UREY.js";import{L as s}from"./vendor-B5UJMaT5.js";import{a as o}from"./index-fMiQB-eC.js";import{Z as a}from"./zap-CsAZzcEO.js";import{c as n}from"./createLucideIcon-CtdwEwoJ.js";import"./index-B1YCTeev.js";import"./charts-CsFM7eW3.js";/**
+ * @license lucide-react v0.363.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const i=n("Home",[["path",{d:"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"y5dka4"}],["polyline",{points:"9 22 9 12 15 12 15 22",key:"e2us08"}]]),p=()=>e.jsx("div",{className:"min-h-screen bg-background text-foreground flex items-center justify-center p-6",children:e.jsxs(t.div,{initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},className:"text-center space-y-6 max-w-md",children:[e.jsx("div",{className:"w-20 h-20 mx-auto rounded-3xl bg-brand-500/15 flex items-center justify-center",children:e.jsx(a,{className:"w-10 h-10 text-brand-400"})}),e.jsxs("div",{children:[e.jsx("h1",{className:"text-8xl font-black gradient-text",children:"404"}),e.jsx("h2",{className:"text-2xl font-bold text-foreground mt-2",children:"Page not found"}),e.jsx("p",{className:"text-muted mt-2",children:"The page you're looking for doesn't exist or has been moved."})]}),e.jsx(s,{to:"/",children:e.jsxs(o,{size:"lg",id:"not-found-home-btn",children:[e.jsx(i,{className:"w-4 h-4"})," Go home"]})})]})});export{p as default};
+//# sourceMappingURL=NotFound-CRiL90Tg.js.map
