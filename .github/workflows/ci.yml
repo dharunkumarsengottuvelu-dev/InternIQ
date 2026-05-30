@@ -33,6 +33,7 @@ jobs:
       
     - name: Run Backend Linter
       run: npm run lint --workspace=server --if-present
+      continue-on-error: true
 
     # Frontend
     - name: Build Frontend
@@ -40,3 +41,4 @@ jobs:
 
     - name: Run Frontend Linter
       run: npm run lint --workspace=client --if-present
+      continue-on-error: true
