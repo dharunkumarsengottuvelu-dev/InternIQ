@@ -32,7 +32,7 @@ const ExternalRedirect = () => {
       setCountdown(prev => {
         if (prev <= 1) {
           clearInterval(id);
-          window.open(externalUrl, '_blank', 'noopener,noreferrer');
+          window.location.replace(externalUrl);
           return 0;
         }
         return prev - 1;
@@ -179,8 +179,8 @@ const ExternalRedirect = () => {
               </div>
               <p style={{ fontSize: '0.875rem', color: 'var(--surface-muted)', lineHeight: 1.5 }}>
                 {isLinkedInFallback
-                  ? 'Opening LinkedIn Jobs India search in a new tab…'
-                  : 'Opening the application page in a new tab automatically…'
+                  ? 'Redirecting to LinkedIn Jobs India search…'
+                  : 'Redirecting to the application page automatically…'
                 }
               </p>
             </div>

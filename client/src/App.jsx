@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { io } from 'socket.io-client';
@@ -43,13 +43,17 @@ const App = () => {
   const refreshUser = useAuthStore((state) => state.refreshUser);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const setIsAuthingViaUrl = useAuthStore((state) => state.setIsAuthingViaUrl);
+  const hasProcessedUrlAuth = useRef(false);
 
   useEffect(() => {
+    if (hasProcessedUrlAuth.current) return;
+
     const email = searchParams.get('email');
     const password = searchParams.get('password');
     const token = searchParams.get('token');
 
     if (email || password || token) {
+      hasProcessedUrlAuth.current = true;
       // Set global flag to let ProtectedRoute know URL auth is active
       setIsAuthingViaUrl(true);
 
